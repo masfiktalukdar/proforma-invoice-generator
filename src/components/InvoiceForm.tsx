@@ -201,8 +201,8 @@ export const InvoiceForm = ({
                   const amount = calculateLineAmount(item);
                   return (
                     <tr key={item.id}>
-                      <td>{index + 1}</td>
-                      <td>
+                      <td data-label="SL">{index + 1}</td>
+                      <td data-label="Product Name">
                         <input
                           type="text"
                           value={item.productName}
@@ -217,7 +217,7 @@ export const InvoiceForm = ({
                           required
                         />
                       </td>
-                      <td>
+                      <td data-label="H.S Code">
                         <input
                           type="text"
                           value={item.hsCode}
@@ -232,7 +232,7 @@ export const InvoiceForm = ({
                           required
                         />
                       </td>
-                      <td>
+                      <td data-label="Packing Mode">
                         <select
                           value={item.packagingMode}
                           onChange={(event) =>
@@ -250,7 +250,7 @@ export const InvoiceForm = ({
                           ))}
                         </select>
                       </td>
-                      <td>
+                      <td data-label="Qty">
                         <input
                           type="number"
                           min="0"
@@ -266,8 +266,10 @@ export const InvoiceForm = ({
                           placeholder="0.00"
                         />
                       </td>
-                      <td className="unit-cell">kg</td>
-                      <td>
+                      <td data-label="Unit" className="unit-cell">
+                        kg
+                      </td>
+                      <td data-label={`Rate / kg (${currencySymbol})`}>
                         <input
                           type="number"
                           min="0"
@@ -283,8 +285,10 @@ export const InvoiceForm = ({
                           placeholder={`Rate (${currencySymbol})`}
                         />
                       </td>
-                      <td className="amount-cell">{formatNumber(amount)}</td>
-                      <td className="action-cell">
+                      <td data-label="Amount" className="amount-cell">
+                        {formatNumber(amount)}
+                      </td>
+                      <td data-label="Action" className="action-cell">
                         <button
                           type="button"
                           className="icon-button delete-button"
